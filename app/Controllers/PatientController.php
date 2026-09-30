@@ -21,8 +21,8 @@ class PatientController extends BaseController
     // GET /patient 
     public function index()
     {
-        // $data['patients'] = $this->patientModel->findAll();
-        return view('patients/index');
+        $data['patients'] = $this->patientModel->findAll();
+        return view('patients/index', $data);
     }
 
     //GET /patient/create
@@ -49,10 +49,33 @@ class PatientController extends BaseController
                 ->with('error', $this->patientModel->errors());
         }
 
-        return redirect()->to('/patient')->with('success', 'Patient added successfully');
+        return redirect()->to('/patients')->with('success', 'Patient added successfully');
     }
 
-    public function update() {}
+    //GET  /patients/edit/{$id}
+    public function edit($id)
+    {
+        $data['patient'] = $this->patientModel->find($id);
+
+        if (!$data['patient']) {
+            return redirect()->to('/patients')->with('error', ['Patient not found']);
+        }
+
+        return view('patients/edit', $data);
+    }
+
+    public function update()
+    {
+        $data = [
+            'patient_name' => $this->request->getPost('patient_name'),
+            'patient_contact' => $this->request->getPost('patient_contact'),
+            'status' => $this->request->getPost('status')
+        ];
+
+        if (!$this->patientModel->update($id, $data)) {
+            return redirect()->back()->withInput()->with('error', $this->patientModel->error());
+        }
+    }
 
     public function delete() {}
 }

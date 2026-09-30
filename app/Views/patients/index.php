@@ -25,7 +25,7 @@
             </div>
         <?php endif; ?>
 
-        <a href="/patient/create" class="btn btn-secondary mb-3">+ Add Patient</a>
+        <a href="/patients/create" class="btn btn-secondary mb-3">+ Add Patient</a>
 
         <table class="table table-bordered">
             <thead>
