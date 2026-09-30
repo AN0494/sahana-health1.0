@@ -15,6 +15,11 @@
         <h1> Registered Patients </h1>
 
         <?php if (session()->getFlashdata('success')): ?>
+            <!-- each user who sends request to server is assigned a global session object
+            identify using unique sessionID
+            sessionID should be saved in the  user side but browser cant save sessionID
+            so it creates a text file called COOKIES which save the sessionID in client  
+            side and the browser access sessionID by using the cookies  -->
             <div class="alert alert-success">
                 <?= session()->getFlashdata('success') ?>
             </div>
