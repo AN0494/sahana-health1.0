@@ -29,8 +29,9 @@ class PatientController extends BaseController
     public function create()
     {
         //return empty form to enter patient info
-        return view('patient/create');
+        return view('patients/create');
     }
+
 
     // POST /patient/store
     public function store()

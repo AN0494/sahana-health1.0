@@ -24,6 +24,7 @@
 
         <form action="/patients/store" method="post">
             <?= csrf_field() ?>
+            <!-- security files in the browser -->
 
             <div class="mb-3">
                 <label class="form-label">Patient Name</label>
