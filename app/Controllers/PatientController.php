@@ -21,7 +21,8 @@ class PatientController extends BaseController
     // GET /patient 
     public function index()
     {
-        $data['patients'] = $this->patientModel->findAll();
+        // $data['patients'] = $this->patientModel->findAll();
+        return view('patients/index');
     }
 
     //GET /patient/create
