@@ -7,19 +7,12 @@
     <title>Sahana Health - Patients</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
-<!-- terminal enter "php spark serve" 
- then use that localhost url with the foldername and filename-->
 
 <body class="p-4">
     <div class="container">
         <h1> Registered Patients </h1>
 
         <?php if (session()->getFlashdata('success')): ?>
-            <!-- each user who sends request to server is assigned a global session object
-            identify using unique sessionID
-            sessionID should be saved in the  user side but browser cant save sessionID
-            so it creates a text file called COOKIES which save the sessionID in client  
-            side and the browser access sessionID by using the cookies  -->
             <div class="alert alert-success">
                 <?= session()->getFlashdata('success') ?>
             </div>

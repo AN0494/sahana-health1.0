@@ -14,9 +14,6 @@ class PatientController extends BaseController
         $this->patientModel = new PatientModel();
     }
 
-    //GET(): access public data/methods stored in URL header // response received through header 
-    //POST(): access private/protectd data stored in URL body 
-    // request sent and response received through body
 
     // GET /patient 
     public function index()
